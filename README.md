@@ -7,4 +7,4 @@ Front-End Tools: Vue.js, CSS, HTML
 
 Back-End Tools: Flask, Flask-SQLAlchemy
 
-![Application Interface Screenshot]/static/Screenshot (51).png
+![Application Interface Screenshot](https://github.com/vikask1401/Kanban/assets/119506864/6322a3fb-36ab-4cc8-92d7-c6aa22865a39)
