@@ -7,4 +7,4 @@ Front-End Tools: Vue.js, CSS, HTML
 
 Back-End Tools: Flask, Flask-SQLAlchemy
 
-![Application Interface Screenshot](/static/Screenshot (51).png)
+![Application Interface Screenshot]/static/Screenshot (51).png
