@@ -6,4 +6,4 @@ Link: https://kanban-20.vikas-anilanil.repl.co
 Front-End Tools: Vue.js, CSS, HTML
 
 Back-End Tools: Flask, Flask-SQLAlchemy
-![Application Interface Screenshot](image link)
+![Application Interface Screenshot](/static/Screenshot (51).png)
