@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title align='center'>Kanban</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/ico" href="/static/icons/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+</head>
+
+
+
+<body>
+  <div align='center'>
+    <img src="/static/icons/logo.png" width="100px" height="100px" style="margin: 10px;">
+    <br>
+    <a href="/user" class="new">
+      New User? Sign-Up
+    </a>
+  </div>
+  <br>
+  <br>
+
+  <div align='center'>
+
+    <form action="#" autocomplete="off" method="POST" class="form" style="padding-top: 0px;">
+      <p style="color: white;border-bottom: 1px solid white;">Log-In</p>
+      <label for='uname'>Username</label>
+      <br>
+      <input id='uname' type='text' name='uname' required></input>
+      <br>
+      <br>
+      <label for='pass'>Password</label>
+      <br>
+      <input id='pass' type='password' name='pass' required></input>
+      <br>
+      <br>
+      <input class="btn" type="submit" value="Go to Dashboard">
+    </form>
+
+  </div>
+  <br>
+
+  {%for message in get_flashed_messages()%}
+  <div align="center">
+    <div class="alert" >{{message}}</div>
+  </div>
+  {%endfor%}
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title align='center'>Create Account</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/ico" href="/static/icons/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div align='center'>
+    <img src="/static/icons/logo.png" width="100px" height="100px" style="margin:10px">
+    <h1 class='title' style="margin-top: 0px;">Create Account</h1>
+  </div>
+
+  <div align='center'>
+    <form action="/user" autocomplete="off" method="POST" class="form">
+      <label for='uname'>Enter Username</label>
+      <br>
+      <input id='uname' type='text' name='uname' required></input>
+      <br>
+      <br>
+      <label for='pass'>Enter Password</label>
+      <br>
+      <input id='pass' type='text' name='pass' required></input>
+      <br>
+      <br>
+      <label for='cpass'>Confirm Password</label>
+      <br>
+      <input id='cpass' type='text' name='cpass' required></input>
+      <br>
+      <br>
+      <input class="btn" type="submit" value="Create Account">
+    </form>
+
+  </div>
+  <br>
+
+  <div align="center">
+    <a href="/" class='new'>
+      Log-In with existing account
+    </a>
+  </div>
+
+  {%for message in get_flashed_messages()%}
+  <div align="center">
+    <div class="alert" >{{message}}</div>
+  </div>
+  {%endfor%}
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title align='center'>{{board.BoardName}}</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/ico" href="/static/icons/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div style="display: flex; align-items: center;justify-content: center;">
+    <img src="/static/icons/logo.png" width="60px" height="60px" style="margin:10px;">
+    <div>
+      <h1 class="title" style="margin: 0px;margin-right: 20px;">{{board.BoardName}}</h1>
+      {{day}}, {{date}}
+    </div>
+  </div>
+
+  <div id="vm" align="center">
+
+    <div align="center" style="display:flex ;align-items: last baseline;justify-content: center;">
+      <a href="/myboards" class='new2'>
+        Boards
+      </a>
+      <button @click="addListMode = !addListMode" class='new2'>
+        Create List
+      </button>
+      <a href="/boardoptions/{{board.BoardID}}" class='new2'>
+        Options
+      </a>
+    </div>
+
+    <div v-if="addListMode">
+      <form @submit.prevent="addList()" class="form" autocomplete="off" style="padding-top: 0px;">
+        <p style="color: white;border-bottom: 1px solid white;">
+          Create New List
+        </p>
+        <label for='lname'>List Name</label>
+        <br>
+        <input id='lname' type='text' name="lname" v-model="listName" style="padding:5px;width:200px">
+        <br>
+        <br>
+        <button @click="addListMode = !addListMode" class="close-btn" style="margin:5px">Close</button>
+        <input class="btn" type="submit" value="Create List">
+      </form>
+    </div>
+    <br>
+
+    <div style="display: flex;justify-content: center;align-items: baseline;flex-wrap: wrap;">
+      <table v-for="list in board_data" class='tasklist' @drop="onTaskDrop($event, list)" @dragenter.prevent
+        @dragover.prevent>
+        <tr>
+          <td>
+            <div style="display: flex;align-items: center;justify-content: space-between;">
+              <button @click="toggleCreateTask(list.id)" style="border: none;background: none;">
+                <img src="/static/icons/plus.png" class="action" width="25px" height="25px">
+              </button>
+
+              <p style="font-size: 17px;margin: 10px;">
+                [[list.name]]
+              </p>
+              
+              <button @click="toggleEditList(list.id)" style="border: none;background: none;">
+                <img src="/static/icons/Edit2.png" class="action" width="25px" height="25px">
+              </button>
+              
+            </div>
+          </td>
+        </tr>
+
+        <tr v-if="list.editMode" >
+          <td align="center">
+            <div style="padding-top: 0px;" class="form">
+              <p style="color: white;border-bottom: 1px solid white;">
+                Edit List
+              </p>
+              <label for='lname'>List Name</label>
+              <br>
+              <input id='lname' type='text' name="lname" v-model="list.name" required></input>
+              <br>
+              <br>
+              
+              <button @click="list.editMode=!list.editMode" class="close-btn">
+                Close
+              </button>
+              <button @click="editList(list.id, list.name); list.editMode=!list.editMode" class="btn">
+                Save Changes
+              </button>
+            </div>
+          </td>
+        </tr>
+
+        <tr v-if="list.addTaskMode===true">
+          <td >
+            <new_task :listid=list.id @close-new-task-modal="list.addTaskMode=false" @refresh="fetchData">
+            </new_task>
+          </td>
+        </tr>
+
+        <tr v-for="task in list.tasks" draggable="true" @dragstart="startTaskDrag($event, task.TaskID)">
+          <td align="center">
+            <edit_task v-if="task.editMode" :task=task @close-edit-task-modal="task.editMode=false">
+            </edit_task>
+
+            <table v-if="!task.editMode" class='card'>
+
+              <tr>
+                <td class='taskname'>
+                  <div>
+                    <p style="margin: 5px;">
+                      [[task.TaskName]]
+                    </p>
+                  </div>
+                </td>
+              </tr>
+
+              <tr v-if="task.Description">
+                <td width="300px" style="padding: 10px;color: rgb(113, 113, 113);">
+                  [[task.Description]]
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding-bottom:5px ;">
+                  <p style="margin: 5px;">Task Due: [[task.Deadline]]</p>
+                </td>
+              </tr>
+
+              <tr>
+                <td style="padding: 10px;">
+                  <div style="display: flex;justify-content: space-evenly;align-items: center;">
+                    <button @click="deleteTask(task.TaskID)" class="close-btn">
+                      <div style="display: flex;justify-content: center;align-items: center;">
+                        Delete Task
+                      </div>
+                    </button>
+                    <button @click="toggleEditTask(list.id, task.TaskID)" class="new">
+                      <div style="display: flex;justify-content: center;align-items: center;">
+                        Edit Task
+                      </div>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="{{ url_for('static', filename='index.js') }}" bid={{board.BoardID}}></script>
+</body>
+
+</html>

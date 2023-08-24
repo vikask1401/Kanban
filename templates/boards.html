@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title align='center'>Boards</title>
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/ico" href="/static/icons/favicon.ico">
+  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div style="display: flex; align-items: center;justify-content: center;">
+    <img src="/static/icons/logo.png" width="60px" height="60px" style="margin:10px;">
+    <div>
+      <h1 class="title" style="margin: 0px;margin-right: 20px;">My Boards</h1>
+      {{day}}, {{date}}
+    </div>
+  </div>
+
+  <div align="center" style="margin: 5px;">
+    <a href="/createboard" class="new2">Create Board</a>
+    <a href="/createboard" class="new2">My Account</a>
+  </div>
+  <br>
+
+  <div align="center">
+    <table style="text-align:center;">
+      {%for board in my_boards%}
+      <tr>
+        <td align="center">
+          <a href="/viewboard/{{board.BoardID}}">
+            <div class="board">
+              {{board.BoardName}}
+            </div>
+          </a>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
+  </div>
+  <br>
+
+  {%for message in get_flashed_messages()%}
+  <div align="center">
+    <div class="alert" >{{message}}</div>
+  </div>
+  {%endfor%}
+
+</html>

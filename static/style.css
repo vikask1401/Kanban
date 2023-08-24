@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-image: url("/static/backgrounds/white.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+}
+
+.title {
+  color: #3d7d98;
+  font-family: 'Poiret One', cursive;
+  font-size: 30px;
+}
+
+
+.form {
+  background-image: url("/static/backgrounds/noise.jpg");
+  background-color: #bde5ed;
+  background-blend-mode: soft-light;
+  box-shadow: inset rgb(54, 84, 103) 1px 1px 100px;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 12px;
+  border: white solid 2px;
+}
+
+.new {
+  border-radius: 10px;
+  color:#3D7C98;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:15px;
+  text-align:center;
+  border:#3D7C98 solid 1.15px;
+  transition: 0.2s;
+  padding:7px;
+  background: none;
+}
+
+.new:hover {
+  color:#ffffff;
+  background:#3d7d98;
+}
+
+.new2 {
+  color:#224757;
+  font-size:17px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align:center;
+  transition: 0.2s;
+  padding:5px;
+  margin: 5px;
+  border: none;
+  background: none;
+}
+
+.new2:hover {
+  color: #02b1b1;
+  border-bottom: #02b1b1 solid 1px;
+}
+
+.btn {
+  background-image: linear-gradient(to left, #77A1D3 0%, #70cbca  35%, #3d7d98  100%);
+  background-size: 200% auto;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+  border: #ffffff solid 1.15px;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.btn:hover {
+  background-position: right center;
+}
+
+.close-btn {
+  border-radius: 10px;
+  color:white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size:15px;
+  text-align:center;
+  border:white solid 1.15px;
+  transition: 0.2s;
+  padding:7px;
+  background: rgb(182, 97, 97);
+}
+
+.close-btn:hover {
+  color:#ffffff;
+  background:rgb(142, 1, 1);
+}
+
+
+.board {
+  color: #3D7C98;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: #80959e solid 1px;
+  transition: 0.2s;
+  width: 200px;
+  padding: 10px;
+}
+
+.board:hover {
+  color: #02b1b1;
+  width: 250px;
+  border-bottom: #02b1b1 solid 1px;
+}
+
+
+.tasklist {
+  min-width:255px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 15px;
+  margin: 5px;
+  border: 1.15px solid #3D7C98;
+  color: #3D7C98;
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.taskname {
+  padding: 5px;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #3D7C98;
+  color: white;
+}
+
+.card {
+  width:215px;
+  margin: 5px;
+  padding: 3px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 15px;
+  color: #282424;
+  background-color: #ffffff;
+  box-shadow: 0.25px 0.25px 20px #acacac;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 1px 1px 8px #4e4e4e;
+}
+
+
+label {
+  font-size: 13px;
+  background: #3D7C98;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  padding: 5px;
+}
+
+input {
+  border-radius: 10px;
+  border: #3D7C98 solid 0px;
+  font-size: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
+  padding: 5px
+}
+
+.drop {
+  text-align: center;
+  border: white solid;
+  border-radius: 20px;
+  border: #3D7C98 solid;
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 5px
+}
+
+.input {
+  text-align: center;
+  border-radius: 15px;
+  background-color: #3D7C98;
+  padding: 8px;
+  color: white;
+}
+
+.alert {
+  font-size: 18px;
+  background: #3D7C98;
+  border-radius: 10px;
+  color: white;
+  padding: 6px;
+  text-align: center;
+  width: fit-content;
+  font-size: 15px;
+  opacity: 0;
+  -webkit-animation: fadeout 8s;
+  -moz-animation: fadeout 8s;
+  -ms-animation: fadeout 8s;
+  -o-animation: fadeout 8s;
+  animation: fadeout 8s;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.action {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: none;
+  border: none;
+  transition: 0.2s;
+}
+
+.action:hover {
+  transform: scale(1.2)
+}
+
+a:link {
+  color: none;
+  text-decoration: none;
+}
+
+a:visited {
+  color: none;
+  text-decoration: none;
+}
+
+a:hover {
+  color: none;
+  text-decoration: none;
+}
+
+a:active {
+  color: none;
+  text-decoration: none;
+}
